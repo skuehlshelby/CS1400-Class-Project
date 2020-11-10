@@ -2,5 +2,7 @@ package CSIS1400;
 
 public interface IValidate<T>
 {
-    boolean isValid(T input);
+    boolean invalid(T input);
+
+    String help();
 }
