@@ -6,7 +6,7 @@ public class View
 {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public void present(String...lines)
+    public static void present(String...lines)
     {
         for (String line : lines)
         {
@@ -14,13 +14,13 @@ public class View
         }
     }
 
-    public int getIntResponse(String...prompt)
+    public static int getIntResponse(String...prompt)
     {
         present(prompt);
         return scanner.nextInt();
     }
 
-    public int getIntResponse(IValidate<Integer> validation, String...prompt)
+    public static int getIntResponse(IValidate<Integer> validation, String...prompt)
     {
         int response;
 
@@ -38,13 +38,13 @@ public class View
         return response;
     }
 
-    public String getStringResponse(String...prompt)
+    public static String getStringResponse(String...prompt)
     {
         present(prompt);
         return scanner.nextLine();
     }
 
-    public String getStringResponse(IValidate<String> validation, String...prompt)
+    public static String getStringResponse(IValidate<String> validation, String...prompt)
     {
         String response;
 
