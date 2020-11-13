@@ -6,8 +6,13 @@ import Controllers.Player;
 public class TaleOfVictory implements IStory
 {
 
+    //fields
+
+    //cstor
+
+    //methods
     public void tell() {
-        System.out.println("Hellloooo");
+
         Actor mainCharacter = new Actor(View.getStringResponse(
                 "You awake in the street with no memory.",
                 "A stranger yells in your general direction.",

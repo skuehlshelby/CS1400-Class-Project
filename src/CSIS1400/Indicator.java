@@ -9,15 +9,18 @@ package CSIS1400;
 
 public class Indicator
 {
+    //fields
     private final double maxValue;
     private double currentValue;
 
+    //constructor
     public Indicator(double maxValue)
     {
         this.maxValue = maxValue;
         this.currentValue = maxValue;
     }
 
+    //methods
     public double current()
     {
         return currentValue;

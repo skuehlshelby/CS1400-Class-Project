@@ -9,10 +9,12 @@ import Actions.ICombatAction;
 
 public class Actor
 {
+    //fields
     private final String name;
     private final Indicator health;
     private final ICombatAction[] availableActions;
 
+    //constructor
     public Actor(String name, double maxHealth, ICombatAction... availableActions)
     {
         this.name = name;
@@ -20,6 +22,7 @@ public class Actor
         this.availableActions = availableActions;
     }
 
+    //methods
     public String getName()
     {
         return name;

@@ -10,10 +10,12 @@ import CSIS1400.Dice;
 
 public class Attack implements ICombatAction
 {
+    //fields
     private final String name;
     private final String description;
     private final Dice dice;
 
+    //cstor
     public Attack(String name, String description, double minDamage, double maxDamage)
     {
         this.name = name;
@@ -21,6 +23,7 @@ public class Attack implements ICombatAction
         this.dice = new Dice(minDamage, maxDamage);
     }
 
+    //methods
     public String getName()
     {
         return name;

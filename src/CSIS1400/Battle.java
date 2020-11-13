@@ -14,13 +14,16 @@ import java.util.stream.Collectors;
 
 public class Battle
 {
+    //fields
     private final IController[] participants;
 
+    //constructor
     public Battle(IController...participants)
     {
         this.participants = participants;
     }
 
+    //methods
     public IController fight()
     {
         do {

@@ -11,11 +11,15 @@ import java.util.ArrayList;
 
 public class Computer extends ControllerHelpers implements IController
 {
+    //fields
+
+    //cstor
     Computer(Actor me)
     {
         super(me);
     }
 
+    //methods
     public ArrayList<Actor> getLiveActors() {
         return null;
     }

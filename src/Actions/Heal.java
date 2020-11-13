@@ -6,10 +6,12 @@ import CSIS1400.Dice;
 public class Heal implements ICombatAction
 {
 
+    //fields
     private final String name;
     private final String description;
     private final Dice dice;
 
+    //cstor
     public Heal(String name, String description, double minHealing, double maxHealing)
     {
         this.name = name;
@@ -17,7 +19,7 @@ public class Heal implements ICombatAction
         this.dice = new Dice(minHealing, maxHealing);
     }
 
-
+    //methods
     public String getName() {
         return name;
     }

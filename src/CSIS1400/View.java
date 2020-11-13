@@ -10,6 +10,11 @@ import java.util.Scanner;
 
 public class View
 {
+    //fields
+
+    //cstor
+
+    //methods
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void present(String...lines)

@@ -11,11 +11,15 @@ import java.util.ArrayList;
 
 public class Player implements IController
 {
+    //fields
+
+    //constructor
     public Player(Actor character)
     {
 
     }
 
+    //methods
     public ArrayList<Actor> getLiveActors()
     {
         return null;
