@@ -1,5 +1,10 @@
 package CSIS1400;
 
+/***************************************
+ * Description: A repository for stats
+ * and actions.
+ ***************************************/
+
 import Actions.ICombatAction;
 
 public class Actor

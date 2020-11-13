@@ -1,5 +1,10 @@
 package Actions;
 
+/*******************************************************************
+ * Description: An action that deals damage to a target (an Actor).
+ *              Information about the attack is defined in the constructor.
+ *******************************************************************/
+
 import CSIS1400.Actor;
 import CSIS1400.Dice;
 

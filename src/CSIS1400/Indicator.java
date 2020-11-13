@@ -1,5 +1,12 @@
 package CSIS1400;
 
+/***************************************
+ * Description: Keeps track of a value
+ * which is bounded by zero and a
+ * maximum value. Good for things like
+ * health bars.
+ ***************************************/
+
 public class Indicator
 {
     private final double maxValue;
