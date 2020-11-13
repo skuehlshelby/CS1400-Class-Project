@@ -1,5 +1,11 @@
 package CSIS1400;
 
+/***************************************
+ * Description: Contains methods for
+ * presenting things to the user and
+ * getting responses from the user.
+ ***************************************/
+
 import java.util.Scanner;
 
 public class View
