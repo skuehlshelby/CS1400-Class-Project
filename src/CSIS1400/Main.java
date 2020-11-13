@@ -7,15 +7,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-
-        System.out.println("Hellloooo");
-        Actor mainCharacter = new Actor(View.getStringResponse(
-                        "You awake in the street with no memory.",
-                                "A stranger yells in your general direction.",
-                                "...what did they call you again?"),
-                                100.0,
-                                new Attack("Attack", "A stalwart slice at your foe...", 10.0, 20.0));
-        Player player = new Player(mainCharacter);
-
+        IStory Arena = new TaleOfVictory();
+        Arena.tell();
     }
 }
