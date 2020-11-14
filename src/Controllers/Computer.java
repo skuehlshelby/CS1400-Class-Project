@@ -7,24 +7,31 @@ package Controllers;
  ***************************************/
 
 import CSIS1400.Actor;
+import CSIS1400.View;
 
-public class Computer extends ControllerHelpers implements IController
+import java.util.Arrays;
+
+public class Computer implements IController
 {
     //fields
-
+    private final Actor[] monsters;
     //cstor
-    Computer(Actor me)
+    public Computer(Actor... monsters)
     {
-        super(me);
+        this.monsters = monsters;
     }
 
     //methods
-    public Actor[] getLiveActors() {
-        return null;
+    public Actor[] getLiveActors()
+    {
+        return Arrays.stream(monsters).filter(m -> !m.getHealth().isEmpty()).toArray(Actor[]::new);
     }
 
     public void takeAction(Actor[] availableTargets)
     {
-        me.getAvailableActions()[0].performAction(availableTargets[0]);
+        for(Actor monster : getLiveActors())
+        {
+            View.present(monster.getAvailableActions()[0].performAction(availableTargets[0]));
+        }
     }
 }

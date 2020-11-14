@@ -7,10 +7,9 @@ package Controllers;
  ***************************************/
 
 import CSIS1400.Actor;
-import CSIS1400.IDescribable;
 import CSIS1400.IsValidIndex;
 import CSIS1400.View;
-import java.util.List;
+import java.util.Arrays;
 
 public class Player implements IController
 {
@@ -26,14 +25,17 @@ public class Player implements IController
     //methods
     public Actor[] getLiveActors()
     {
-        return characters;
+        return Arrays.stream(characters).filter(c -> !c.getHealth().isEmpty()).toArray(Actor[]::new);
     }
 
     public void takeAction(Actor[] availableTargets)
     {
         for(Actor character : characters)
         {
+            View.present("Choose your action...");
             int chosenAction = View.getIntResponse(new IsValidIndex(character.getAvailableActions().length), View.convertToChoices(character.getAvailableActions()));
+
+            View.present("Select your target...");
             int chosenTarget = View.getIntResponse(new IsValidIndex(availableTargets.length), View.convertToChoices(availableTargets));
 
             View.present(character.getAvailableActions()[chosenAction - 1].performAction(availableTargets[chosenTarget - 1]));
