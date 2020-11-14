@@ -8,11 +8,11 @@ package Controllers;
 
 import CSIS1400.Actor;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IController
 {
-    ArrayList<Actor> getLiveActors();
+    Actor[] getLiveActors();
 
-    void takeAction(ArrayList<Actor> availableTargets);
+    void takeAction(Actor[] availableTargets);
 }

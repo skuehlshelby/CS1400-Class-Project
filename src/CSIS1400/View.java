@@ -11,12 +11,11 @@ import java.util.Scanner;
 public class View
 {
     //fields
+    private static final Scanner scanner = new Scanner(System.in);
 
     //cstor
 
     //methods
-    private static final Scanner scanner = new Scanner(System.in);
-
     public static void present(String...lines)
     {
         for (String line : lines)
@@ -71,5 +70,18 @@ public class View
         } while (validation.invalid(response));
 
         return response;
+    }
+
+    public static String[] convertToChoices(IDescribable... values)
+    {
+        final String choiceFormat = "%d. %s: %s";
+        String[] choices = new String[values.length];
+
+        for (int i = 0; i < values.length; i++)
+        {
+            choices[i] = String.format(choiceFormat, i + 1, values[i].getName(), values[i].getDescription());
+        }
+
+        return choices;
     }
 }

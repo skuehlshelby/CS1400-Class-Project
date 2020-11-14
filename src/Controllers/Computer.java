@@ -7,7 +7,6 @@ package Controllers;
  ***************************************/
 
 import CSIS1400.Actor;
-import java.util.ArrayList;
 
 public class Computer extends ControllerHelpers implements IController
 {
@@ -20,12 +19,12 @@ public class Computer extends ControllerHelpers implements IController
     }
 
     //methods
-    public ArrayList<Actor> getLiveActors() {
+    public Actor[] getLiveActors() {
         return null;
     }
 
-    public void takeAction(ArrayList<Actor> availableTargets)
+    public void takeAction(Actor[] availableTargets)
     {
-        me.getAvailableActions()[1].performAction(availableTargets.get(0));
+        me.getAvailableActions()[0].performAction(availableTargets[0]);
     }
 }

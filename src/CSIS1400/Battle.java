@@ -29,7 +29,7 @@ public class Battle
         do {
             for (IController participant : participants)
             {
-                if(participant.getLiveActors().size() > 0)
+                if(participant.getLiveActors().length > 0)
                 {
                     participant.takeAction(getLiveActors());
                 }
@@ -39,19 +39,25 @@ public class Battle
         return participantsWithLiveActors().get(0);
     }
 
-    private ArrayList<Actor> getLiveActors()
+    private Actor[] getLiveActors()
     {
         ArrayList<Actor> liveActors = new ArrayList<>();
 
-        Arrays.stream(participants).map(IController::getLiveActors).forEach(liveActors::addAll);
+        for(IController participant : participants)
+        {
+            for(Actor actor : participant.getLiveActors())
+            {
+                liveActors.add(actor);
+            }
+        }
 
-        return liveActors;
+        return liveActors.toArray(new Actor[0]);
     }
 
     private ArrayList<IController> participantsWithLiveActors()
     {
         return Arrays.stream(participants)
-                .filter(participant -> participant.getLiveActors().size() > 0)
+                .filter(participant -> participant.getLiveActors().length > 0)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 }

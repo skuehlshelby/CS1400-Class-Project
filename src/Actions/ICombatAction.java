@@ -6,12 +6,9 @@ package Actions;
  *******************************************************************/
 
 import CSIS1400.Actor;
+import CSIS1400.IDescribable;
 
-public interface ICombatAction
+public interface ICombatAction extends IDescribable
 {
-    String getName();
-
-    String getDescription();
-
     String performAction(Actor target);
 }

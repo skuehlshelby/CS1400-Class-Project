@@ -7,26 +7,36 @@ package Controllers;
  ***************************************/
 
 import CSIS1400.Actor;
-import java.util.ArrayList;
+import CSIS1400.IDescribable;
+import CSIS1400.IsValidIndex;
+import CSIS1400.View;
+import java.util.List;
 
 public class Player implements IController
 {
     //fields
+    private final Actor[] characters;
 
     //constructor
-    public Player(Actor character)
+    public Player(Actor... characters)
     {
-
+        this.characters = characters;
     }
 
     //methods
-    public ArrayList<Actor> getLiveActors()
+    public Actor[] getLiveActors()
     {
-        return null;
+        return characters;
     }
 
-    public void takeAction(ArrayList<Actor>  availableTargets)
+    public void takeAction(Actor[] availableTargets)
     {
+        for(Actor character : characters)
+        {
+            int chosenAction = View.getIntResponse(new IsValidIndex(character.getAvailableActions().length), View.convertToChoices(character.getAvailableActions()));
+            int chosenTarget = View.getIntResponse(new IsValidIndex(availableTargets.length), View.convertToChoices(availableTargets));
 
+            View.present(character.getAvailableActions()[chosenAction - 1].performAction(availableTargets[chosenTarget - 1]));
+        }
     }
 }
