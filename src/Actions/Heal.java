@@ -31,7 +31,7 @@ public class Heal implements ICombatAction
 
     public String performAction(Actor target) {
         target.getHealth().increase(dice.roll());
-        return String.format("%s drinks a health potion and now has %f.2 health remaining!",
+        return String.format("%s drinks a health potion and now has %.2f health remaining!",
                 target.getName(),
                 target.getHealth().current());
 

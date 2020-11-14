@@ -6,13 +6,20 @@ import Actions.Heal;
 
 public class Stock
 {
-    public static final Actor vampire = new Actor("Vampire", "A most fearsome vampire.",150.0, new Attack("Suck Blood", "Eeek!", 15.0, 30.0));
+    //attack
+    public static final Actor giant = new Actor("Giant", "A hulking giant.",150.0,
+            new Attack("Greatclub attack", "Smash your opponent.", 15.0, 20.0));
 
-    public static final Actor minotaur = new Actor("Minotaur",
-            "A most fearsome minotaur.",
-            200.0,
-            new Attack("Gore",
-                    "Savagely gore your opponent.",
-                    10.0,
-                    20.0), new Heal("Minor Heal", "magically heal", 20, 30));
+    //can attack & heal
+    public static final Actor minotaur = new Actor("Minotaur","Half bull, half humanoid beast.",200.0,
+            new Attack("Gore","Savagely gore your opponent.", 10.0,20.0),
+            new Heal("Minor Heal", "magically heal", 20.0, 30.0));
+
+    //can attack
+    public static final Actor basilisk = new Actor("Basilisk", "A poisonous reptilian creature.", 125.0,
+            new Attack("Bite", "A vicious bite attack.", 10.0, 15.0));
+
+    //can attack
+    public static final Actor giantSpider = new Actor("Giant Spider", "An eight-legged foe.", 130.0,
+            new Attack("Bite", "A lethal piercing attack.", 15.0, 25.0));
 }
