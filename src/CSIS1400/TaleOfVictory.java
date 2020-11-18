@@ -47,9 +47,9 @@ public class TaleOfVictory implements IStory
             View.present(new Battle(player, comp).fight().getClass().toString()); //battle starts
 
             if (Stock.minotaur.getHealth().current() <= 0 && Stock.giant.getHealth().current() <= 0) {
-                story.present(String.format("%nThe giant and minotaur lay dead at your feet.%n%n"));
+                story.present(String.format("%nThe giant and minotaur lay dead at your feet.%n"));
             }
-        }while(mainCharacter.getHealth().current() > 0);
+        }while(Stock.giant.getHealth().current() > 0 && Stock.minotaur.getHealth().current() > 0 && mainCharacter.getHealth().current() > 0);
 
     /***** SECOND BATTLE ****/
 
@@ -63,7 +63,7 @@ public class TaleOfVictory implements IStory
         }
 
         if (mainCharacter.getHealth().current() > 0){
-            story.present("You stand victorious!");
+            story.present("\nYou stand victorious!");
         }
             else{
                 story.present("\nYour best wasn't good enough.", "You lie dead in the sand");
