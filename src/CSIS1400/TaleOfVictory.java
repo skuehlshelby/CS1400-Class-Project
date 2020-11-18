@@ -4,6 +4,7 @@ import Actions.Attack;
 import Actions.Heal;
 import CSIS1400.Enemies.Stock;
 import Controllers.Computer;
+import Controllers.IController;
 import Controllers.Player;
 
 public class TaleOfVictory implements IStory
@@ -41,30 +42,28 @@ public class TaleOfVictory implements IStory
         Player player = new Player(mainCharacter);
         Computer comp = new Computer(Stock.minotaur, Stock.giant);
 
-        do {
-            View.present(new Battle(player, comp).fight().getClass().toString()); //battle starts
-
-            if (Stock.minotaur.getHealth().current() <= 0 && Stock.giant.getHealth().current() <= 0) {
-                story.present(String.format("%nThe giant and minotaur lay dead at your feet.%n"));
-            }
-        }while(Stock.giant.getHealth().current() > 0 && Stock.minotaur.getHealth().current() > 0 && mainCharacter.getHealth().current() > 0);
+        IController Victor = new Battle(player, comp).fight();
+        if (Victor.getClass() == Controllers.Player.class) {
+            View.present(String.format("%nThe giant and minotaur lay dead at your feet.%n"));
+        }
+        else {
+            View.present("\nYour best wasn't good enough.", "You lie dead in the sand");
+            return;
+        }
 
     /***** SECOND BATTLE ****/
 
-        if (mainCharacter.getHealth().current() > 0){
-            story.present("You hear sound of more enemies approaching... you turn to face them.");
+        View.present("You hear sound of more enemies approaching... you turn to face them.");
 
-            Player player1 = new Player(mainCharacter);
-            Computer comp1 = new Computer(Stock.basilisk, Stock.giantSpider);
+        comp = new Computer(Stock.basilisk, Stock.giantSpider);
 
-            View.present(new Battle(player1, comp1).fight().getClass().toString());
-        }
+        Victor = new Battle(player, comp).fight();
 
-        if (mainCharacter.getHealth().current() > 0){
-            story.present("\nYou stand victorious!");
+        if (Victor.getClass() == Controllers.Player.class){
+            View.present("\nYou stand victorious!");
         }
             else{
-                story.present("\nYour best wasn't good enough.", "You lie dead in the sand");
+                View.present("\nYour best wasn't good enough.", "You lie dead in the sand");
         }
     }
 }

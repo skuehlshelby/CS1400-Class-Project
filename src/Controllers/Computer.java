@@ -14,6 +14,7 @@ public class Computer implements IController
 {
     //fields
     private final Actor[] monsters;
+
     //cstor
     public Computer(Actor... monsters)
     {
