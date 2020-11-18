@@ -8,16 +8,14 @@ import Controllers.Player;
 
 public class TaleOfVictory implements IStory
 {
-    View story = new View();
     //fields
 
     //cstor
 
     //methods
     public void tell() {
-
         //INTRODUCTION (just messing around right now, can change up later if we want!)
-        story.present("You take a breath, readying yourself as you listen to the sound of",
+        View.present("You take a breath, readying yourself as you listen to the sound of",
                 "thousands of voices cheering and yelling around the arena.",
                 "The deafening voice of the announcer cuts through them all.",
                 " ", "“And now, time for our last contestant in this year’s Victory Pit!",
@@ -34,8 +32,8 @@ public class TaleOfVictory implements IStory
                 new Attack("Fire Bolt", "A powerful bolt of fire magic...", 50.0, 100.0),
                 new Heal("Drink Potion", "Restore a small amount of health...", 20.0, 50.0));
 
-        story.present(String.format("“%s! %s! %s!“", mainCharacter.getName(), mainCharacter.getName(), mainCharacter.getName()));
-        story.present(" ", "More gates lift all around you as various beasts come hurling out of them,",
+        View.present(String.format("“%s! %s! %s!“", mainCharacter.getName(), mainCharacter.getName(), mainCharacter.getName()));
+        View.present(" ", "More gates lift all around you as various beasts come hurling out of them,",
                 "setting you in their sights.", " ", "You charge towards them to meet their attack.", " ");
 
         Player player = new Player(mainCharacter);

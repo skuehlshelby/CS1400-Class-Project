@@ -8,7 +8,6 @@ package Controllers;
 
 import CSIS1400.Actor;
 import CSIS1400.View;
-
 import java.util.Arrays;
 
 public class Computer implements IController

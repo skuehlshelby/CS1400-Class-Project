@@ -8,8 +8,6 @@ package Controllers;
 
 import CSIS1400.Actor;
 
-import java.util.List;
-
 public interface IController
 {
     Actor[] getLiveActors();
