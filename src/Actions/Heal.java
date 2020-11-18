@@ -30,10 +30,25 @@ public class Heal implements ICombatAction
 
 
     public String performAction(Actor target) {
-        target.getHealth().increase(dice.roll());
-        return String.format("%s drinks a health potion and now has %.2f health remaining!",
-                target.getName(),
-                target.getHealth().current());
 
+        double restoredHealth = dice.roll();
+
+        if(restoredHealth >= target.getHealth().maxValue() - target.getHealth().current())
+        {
+            target.getHealth().increase(restoredHealth);
+
+            return String.format("%s recovered %.2f health using %s and is now at full health!",
+                    target.getName(),
+                    restoredHealth,
+                    getName());
+        }
+        else
+        {
+            return String.format("%s recovered %.2f health using %s and now has %.2f health remaining!",
+                    target.getName(),
+                    restoredHealth,
+                    getName(),
+                    target.getHealth().increase(restoredHealth));
+        }
     }
 }

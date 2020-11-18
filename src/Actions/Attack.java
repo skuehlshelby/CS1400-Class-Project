@@ -37,9 +37,23 @@ public class Attack implements ICombatAction
     public String performAction(Actor target)
     {
         double damage = dice.roll();
-        return String.format("%s took %.2f damage and has %.2f health remaining!",
-                target.getName(),
-                damage,
-                target.getHealth().reduce(damage));
+
+        if(damage >= target.getHealth().current())
+        {
+            target.getHealth().reduce(damage);
+
+            return String.format("%s takes %.2f damage from %s and now lies dead...",
+                    target.getName(),
+                    damage,
+                    getName());
+        }
+        else
+        {
+            return String.format("%s takes %.2f damage from %s and has %.2f health remaining!",
+                    target.getName(),
+                    damage,
+                    getName(),
+                    target.getHealth().reduce(damage));
+        }
     }
 }

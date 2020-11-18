@@ -38,6 +38,11 @@ public class Indicator
         return current();
     }
 
+    public double maxValue()
+    {
+        return this.maxValue;
+    }
+
     public boolean isEmpty()
     {
         return current() <= 0.0;
