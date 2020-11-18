@@ -6,7 +6,7 @@ import Actions.Heal;
 
 public class Stock
 {
-    //attack
+    //can attack
     public static final Actor giant = new Actor("Giant", "A hulking giant.",150.0,
             new Attack("Greatclub attack", "Smash your opponent.", 15.0, 20.0));
 
@@ -20,6 +20,6 @@ public class Stock
             new Attack("Bite", "A vicious bite attack.", 10.0, 15.0));
 
     //can attack
-    public static final Actor giantSpider = new Actor("Giant Spider", "An eight-legged foe.", 130.0,
+    public static final Actor giantSpider = new Actor("Giant Spider", "An eight-legged beast.", 130.0,
             new Attack("Bite", "A lethal piercing attack.", 15.0, 25.0));
 }

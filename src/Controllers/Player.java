@@ -32,10 +32,10 @@ public class Player implements IController
     {
         for(Actor character : characters)
         {
-            View.present("Choose your action...");
+            View.present(String.format("%nChoose your action..."));
             int chosenAction = View.getIntResponse(new IsValidIndex(character.getAvailableActions().length), View.convertToChoices(character.getAvailableActions()));
 
-            View.present("Select your target...");
+            View.present(String.format("%nSelect your target..."));
             int chosenTarget = View.getIntResponse(new IsValidIndex(availableTargets.length), View.convertToChoices(availableTargets));
 
             View.present(character.getAvailableActions()[chosenAction - 1].performAction(availableTargets[chosenTarget - 1]));

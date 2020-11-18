@@ -30,15 +30,41 @@ public class TaleOfVictory implements IStory
                 150.0,
                 new Attack("Flurry of Blows", "A whirlwind of attacks against your foe...", 15.0, 25.0),
                 new Attack("Fire Bolt", "A powerful bolt of fire magic...", 50.0, 100.0),
-                new Heal("Drink Potion", "Restore a small amount of health...", 20.0, 50.0));
+                new Heal("Cure Wounds", "Restore a small amount of health...", 50.0, 70.0));
 
         View.present(String.format("“%s! %s! %s!“", mainCharacter.getName(), mainCharacter.getName(), mainCharacter.getName()));
         View.present(" ", "More gates lift all around you as various beasts come hurling out of them,",
                 "setting you in their sights.", " ", "You charge towards them to meet their attack.", " ");
 
+    /**FIRST BATTLE**/
+
         Player player = new Player(mainCharacter);
         Computer comp = new Computer(Stock.minotaur, Stock.giant);
 
-        View.present(new Battle(player, comp).fight().getClass().toString()); //battle starts
+        do {
+            View.present(new Battle(player, comp).fight().getClass().toString()); //battle starts
+
+            if (Stock.minotaur.getHealth().current() <= 0 && Stock.giant.getHealth().current() <= 0) {
+                story.present(String.format("%nThe giant and minotaur lay dead at your feet.%n"));
+            }
+        }while(Stock.giant.getHealth().current() > 0 && Stock.minotaur.getHealth().current() > 0 && mainCharacter.getHealth().current() > 0);
+
+    /***** SECOND BATTLE ****/
+
+        if (mainCharacter.getHealth().current() > 0){
+            story.present("You hear sound of more enemies approaching... you turn to face them.");
+
+            Player player1 = new Player(mainCharacter);
+            Computer comp1 = new Computer(Stock.basilisk, Stock.giantSpider);
+
+            View.present(new Battle(player1, comp1).fight().getClass().toString());
+        }
+
+        if (mainCharacter.getHealth().current() > 0){
+            story.present("\nYou stand victorious!");
+        }
+            else{
+                story.present("\nYour best wasn't good enough.", "You lie dead in the sand");
+        }
     }
 }
