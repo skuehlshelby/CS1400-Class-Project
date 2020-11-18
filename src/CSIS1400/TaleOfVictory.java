@@ -43,7 +43,7 @@ public class TaleOfVictory implements IStory
         Computer comp = new Computer(Stock.minotaur, Stock.giant);
 
         IController Victor = new Battle(player, comp).fight();
-        if (Victor.getClass() == Controllers.Player.class) {
+        if (Victor == player) {
             View.present(String.format("%nThe giant and minotaur lay dead at your feet.%n"));
         }
         else {
@@ -59,7 +59,7 @@ public class TaleOfVictory implements IStory
 
         Victor = new Battle(player, comp).fight();
 
-        if (Victor.getClass() == Controllers.Player.class){
+        if (Victor == player){
             View.present("\nYou stand victorious!");
         }
             else{
