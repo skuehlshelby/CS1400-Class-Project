@@ -3,7 +3,7 @@
  * Pebble Distribution: 50/50
  **************/
 
-package CSIS1400;
+package BattleGame;
 
 public class Main
 {

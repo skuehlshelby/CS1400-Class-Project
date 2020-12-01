@@ -1,11 +1,12 @@
-package CSIS1400;
+package BattleGame;
 
-import Actions.Attack;
-import Actions.Heal;
-import CSIS1400.Enemies.Stock;
-import Controllers.Computer;
-import Controllers.IController;
-import Controllers.Player;
+import BattleGame.Actions.Attack;
+import BattleGame.Actions.Heal;
+import BattleGame.UserInteraction.View;
+import BattleGame.Enemies.Stock;
+import BattleGame.Controllers.Computer;
+import BattleGame.Controllers.IController;
+import BattleGame.Controllers.Player;
 
 public class TaleOfVictory implements IStory
 {
