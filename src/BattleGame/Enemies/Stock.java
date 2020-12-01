@@ -1,14 +1,14 @@
-package CSIS1400.Enemies;
+package BattleGame.Enemies;
 
-import Actions.Attack;
-import CSIS1400.Actor;
-import Actions.Heal;
+import BattleGame.Actions.Attack;
+import BattleGame.Actor;
+import BattleGame.Actions.Heal;
 
 public class Stock
 {
     //can attack
     public static final Actor giant = new Actor("Giant", "A hulking giant.",150.0,
-            new Attack("Greatclub attack", "Smash your opponent.", 15.0, 20.0));
+            new Attack("Great-Club Attack", "Smash your opponent.", 15.0, 20.0));
 
     //can attack & heal
     public static final Actor minotaur = new Actor("Minotaur","Half bull, half humanoid beast.",200.0,

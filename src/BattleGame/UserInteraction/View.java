@@ -1,4 +1,4 @@
-package CSIS1400;
+package BattleGame.UserInteraction;
 
 /***************************************
  * Description: Contains methods for
@@ -70,18 +70,5 @@ public class View
         } while (validation.invalid(response));
 
         return response;
-    }
-
-    public static String[] convertToChoices(IDescribable... values)
-    {
-        final String choiceFormat = "%d. %s: %s";
-        String[] choices = new String[values.length];
-
-        for (int i = 0; i < values.length; i++)
-        {
-            choices[i] = String.format(choiceFormat, i + 1, values[i].getName(), values[i].getDescription());
-        }
-
-        return choices;
     }
 }

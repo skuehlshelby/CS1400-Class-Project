@@ -1,7 +1,7 @@
-package Actions;
+package BattleGame.Actions;
 
-import CSIS1400.Actor;
-import CSIS1400.Dice;
+import BattleGame.Actor;
+import BattleGame.Dice;
 
 public class Heal implements ICombatAction
 {

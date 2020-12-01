@@ -1,11 +1,13 @@
-package CSIS1400;
+package BattleGame;
 
-import Actions.Attack;
-import Actions.Heal;
-import CSIS1400.Enemies.Stock;
-import Controllers.Computer;
-import Controllers.IController;
-import Controllers.Player;
+import BattleGame.Actions.Attack;
+import BattleGame.Actions.Heal;
+import BattleGame.Enemies.Stock;
+import BattleGame.Controllers.AIStrategy.OnlyAttack;
+import BattleGame.Controllers.Computer;
+import BattleGame.Controllers.IController;
+import BattleGame.Controllers.Player;
+import BattleGame.UserInteraction.View;
 
 public class TaleOfVictory implements IStory
 {
@@ -55,9 +57,7 @@ public class TaleOfVictory implements IStory
 
         View.present("You hear sound of more enemies approaching... you turn to face them.");
 
-        comp = new Computer(Stock.basilisk, Stock.giantSpider);
-
-        Victor = new Battle(player, comp).fight();
+        Victor = new Battle(player, new Computer(Stock.basilisk), new Computer(new OnlyAttack(), Stock.giantSpider)).fight();
 
         if (Victor == player){
             View.present("\nYou stand victorious!");

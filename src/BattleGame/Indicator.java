@@ -1,4 +1,4 @@
-package CSIS1400;
+package BattleGame;
 
 /***************************************
  * Description: Keeps track of a value

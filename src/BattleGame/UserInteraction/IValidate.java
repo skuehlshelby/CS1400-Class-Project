@@ -1,4 +1,4 @@
-package CSIS1400;
+package BattleGame.UserInteraction;
 
 /***************************************
  * Description: An interface which can

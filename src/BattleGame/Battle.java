@@ -1,4 +1,4 @@
-package CSIS1400;
+package BattleGame;
 
 /***************************************
  * Description: Manages turns between
@@ -7,7 +7,7 @@ package CSIS1400;
  * has live actors.
  ***************************************/
 
-import Controllers.IController;
+import BattleGame.Controllers.IController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;

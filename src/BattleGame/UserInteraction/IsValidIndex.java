@@ -1,16 +1,14 @@
-package CSIS1400;
-
-import java.util.ArrayList;
+package BattleGame.UserInteraction;
 
 public class IsValidIndex implements IValidate<Integer>
 {
     private final int minValue;
     private final int maxValue;
 
-    public IsValidIndex(int sizeOfList)
+    public <T> IsValidIndex(T[] input)
     {
         this.minValue = 1;
-        this.maxValue = sizeOfList;
+        this.maxValue = input.length;
     }
 
     public boolean invalid(Integer input)

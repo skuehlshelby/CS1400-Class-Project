@@ -1,11 +1,11 @@
-package CSIS1400;
+package BattleGame;
 
 /***************************************
  * Description: A repository for stats
  * and actions.
  ***************************************/
 
-import Actions.ICombatAction;
+import BattleGame.Actions.ICombatAction;
 
 public class Actor implements IDescribable
 {

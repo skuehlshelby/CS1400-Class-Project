@@ -1,4 +1,4 @@
-package Controllers;
+package BattleGame.Controllers;
 
 /*************************************
  * Description: An interface which stipulates
@@ -6,7 +6,7 @@ package Controllers;
  * take actions.
  *************************************/
 
-import CSIS1400.Actor;
+import BattleGame.Actor;
 
 public interface IController
 {
