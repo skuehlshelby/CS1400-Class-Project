@@ -45,14 +45,14 @@ public class Attack implements ICombatAction
             return String.format("%s takes %.2f damage from %s and now lies dead...",
                     target.getName(),
                     damage,
-                    getName());
+                    getDescription());
         }
         else
         {
             return String.format("%s takes %.2f damage from %s and has %.2f health remaining!",
                     target.getName(),
                     damage,
-                    getName(),
+                    getDescription(),
                     target.getHealth().reduce(damage));
         }
     }

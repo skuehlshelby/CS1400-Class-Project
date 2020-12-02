@@ -30,9 +30,9 @@ public class TaleOfVictory implements IStory
                 "(What name is the crowd cheering?)"),
                 "A legendary fighter.",
                 150.0,
-                new Attack("Flurry of Blows", "A whirlwind of attacks against your foe...", 15.0, 25.0),
-                new Attack("Fire Bolt", "A powerful bolt of fire magic...", 50.0, 100.0),
-                new Heal("Cure Wounds", "Restore a small amount of health...", 50.0, 70.0));
+                new Attack("Flurry of Blows", "a whirlwind of attacks", 25.0, 35.0),
+                new Attack("Fire Bolt", "a powerful bolt of fire magic", 40.0, 75.0),
+                new Heal("Cure Wounds", "restores a small amount of health", 50.0, 70.0));
 
         View.present(String.format("“%s! %s! %s!“", mainCharacter.getName(), mainCharacter.getName(), mainCharacter.getName()));
         View.present(" ", "More gates lift around you as various beasts come hurling out of them,",
@@ -48,7 +48,7 @@ public class TaleOfVictory implements IStory
         if (Victor == player) {
             View.present("\nWith hardly a sweat upon your brow,",
                     "you watch the bodies of the beasts drop to the ground with a thud.",
-                    "\n...But this battle is not yet over.",
+                    "\nBut this battle is not yet over.",
                     "\nHearing sound of more enemies rushing near... you turn to face them.");
         }
         //IF PLAYER DIES
@@ -72,8 +72,9 @@ public class TaleOfVictory implements IStory
 
             View.present(String.format("%n“%s! %s! %s!“", mainCharacter.getName().toUpperCase(),
                     mainCharacter.getName().toUpperCase(), mainCharacter.getName().toUpperCase()));
-            //TODO
-            View.present("(add more here)");
+
+            View.present("With another win under your belt, you leave the arena laden with gold and gifts..",
+                    "already anticipating next year's fight.");
         }
             //IF PLAYER DIES.
             else{
