@@ -8,56 +8,54 @@ package BattleGame;
  ***************************************/
 
 import BattleGame.Controllers.IController;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Battle
 {
     //fields
-    private final IController[] participants;
+    private final Map<Actor, IController> actors = new HashMap<>();
 
     //constructor
     public Battle(IController...participants)
     {
-        this.participants = participants;
+        for(IController participant : participants)
+        {
+            for (Actor actor : participant.getActors())
+            {
+                actors.put(actor, participant);
+            }
+        }
     }
 
     //methods
     public IController fight()
     {
         do {
-            for (IController participant : participants)
+            for(Iterator<Actor> actorIterator = actors.keySet().iterator(); actorIterator.hasNext();)
             {
-                if(participant.getLiveActors().length > 0)
+                Actor actor = actorIterator.next();
+
+                if(actor.getHealth().isEmpty())
                 {
-                    participant.takeAction(getLiveActors());
+                    actorIterator.remove();
+
+                    if(onlyOneRemains())
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    actors.get(actor).takeAction(actor, new ArrayList<>(actors.keySet()));
                 }
             }
-        }while(participantsWithLiveActors().size() > 1);
+        }while(!onlyOneRemains());
 
-        return participantsWithLiveActors().get(0);
+        return actors.values().stream().findFirst().get();
     }
 
-    private Actor[] getLiveActors()
+    private boolean onlyOneRemains()
     {
-        ArrayList<Actor> liveActors = new ArrayList<>();
-
-        for(IController participant : participants)
-        {
-            for(Actor actor : participant.getLiveActors())
-            {
-                liveActors.add(actor);
-            }
-        }
-
-        return liveActors.toArray(new Actor[0]);
-    }
-
-    private ArrayList<IController> participantsWithLiveActors()
-    {
-        return Arrays.stream(participants)
-                .filter(participant -> participant.getLiveActors().length > 0)
-                .collect(Collectors.toCollection(ArrayList::new));
+        return actors.values().stream().distinct().count() == 1;
     }
 }

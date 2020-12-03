@@ -13,6 +13,8 @@ import BattleGame.UserInteraction.View;
 import BattleGame.Controllers.AIStrategy.Balanced;
 import BattleGame.Controllers.AIStrategy.IAIStrategy;
 
+import java.util.List;
+
 public class Computer extends Controller implements IController
 {
     //fields
@@ -31,11 +33,9 @@ public class Computer extends Controller implements IController
     }
 
     //methods
-    public void takeAction(Actor[] availableTargets)
+    public void takeAction(Actor partyMember, List<Actor> availableTargets)
     {
-        for(Actor monster : getLiveActors())
-        {
-            ICombatAction chosenAction = strategy.getAction(monster);
+            ICombatAction chosenAction = strategy.getAction(partyMember);
             Actor chosenTarget;
 
             if(chosenAction instanceof Attack)
@@ -44,10 +44,9 @@ public class Computer extends Controller implements IController
             }
             else
             {
-                chosenTarget = strategy.getTarget(partyMembers());
+                chosenTarget = strategy.getTarget(allies(availableTargets));
             }
 
             View.present(chosenAction.performAction(chosenTarget));
-        }
     }
 }

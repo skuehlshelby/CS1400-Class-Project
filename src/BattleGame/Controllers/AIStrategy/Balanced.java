@@ -2,22 +2,23 @@ package BattleGame.Controllers.AIStrategy;
 
 import BattleGame.Actions.ICombatAction;
 import BattleGame.Actor;
+import java.util.List;
 
 public class Balanced extends AIStrategy implements IAIStrategy
 {
     public ICombatAction getAction(Actor actor)
     {
-        ICombatAction[] availableActions = actor.getAvailableActions();
+        List<ICombatAction> availableActions = actor.availableActions();
 
         if(actor.getHealth().current() / actor.getHealth().maxValue() < 0.5)
         {
-            if(onlyHeals(availableActions).length > 0)
+            if(!onlyHeals(availableActions).isEmpty())
             {
                 return pickRandom(onlyHeals(availableActions));
             }
         }
 
-        if(onlyAttacks(availableActions).length > 0)
+        if(!onlyAttacks(availableActions).isEmpty())
         {
             return pickRandom(onlyAttacks(availableActions));
         }
@@ -25,7 +26,7 @@ public class Balanced extends AIStrategy implements IAIStrategy
         return pickRandom(availableActions);
     }
 
-    public Actor getTarget(Actor... availableTargets)
+    public Actor getTarget(List<Actor> availableTargets)
     {
         return lowestHealth(availableTargets);
     }

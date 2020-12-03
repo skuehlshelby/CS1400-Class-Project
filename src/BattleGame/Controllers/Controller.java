@@ -4,51 +4,32 @@ import BattleGame.Actor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //Might not need this class. It's just a place to put methods that are shared between the player and the computer.
 public abstract class Controller implements IController
 {
-    protected final Actor[] party;
+    protected final List<Actor> party;
 
     Controller(Actor... party)
     {
-        this.party = party;
+        this.party = Arrays.asList(party);
     }
 
-    protected Actor[] partyMembers()
+    public List<Actor> getActors()
     {
         return party;
     }
 
-    public Actor[] getLiveActors()
+    protected List<Actor> opponents(List<Actor> actors)
     {
-        List<Actor> live = new ArrayList<>();
-
-        for (Actor actor : party)
-        {
-            if (!actor.getHealth().isEmpty())
-            {
-                live.add(actor);
-            }
-        }
-
-        return live.toArray(new Actor[0]);
+        return actors.stream().filter(actor -> !party.contains(actor)).collect(Collectors.toList());
     }
 
-    protected Actor[] opponents(Actor[] actors)
+    protected List<Actor> allies(List<Actor> actors)
     {
-        List<Actor> partyMembers = Arrays.asList(partyMembers());
-        List<Actor> opponents = new ArrayList<>();
-
-        for (Actor element : actors)
-        {
-            if (!partyMembers.contains(element))
-            {
-                opponents.add(element);
-            }
-        }
-        return opponents.toArray(new Actor[0]);
+        return actors.stream().filter(party::contains).collect(Collectors.toList());
     }
 
-    public abstract void takeAction(Actor[] availableTargets);
+    public abstract void takeAction(Actor partyMember, List<Actor> availableTargets);
 }

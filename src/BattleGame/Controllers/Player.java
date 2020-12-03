@@ -9,9 +9,12 @@ package BattleGame.Controllers;
 import BattleGame.Actions.Heal;
 import BattleGame.Actions.ICombatAction;
 import BattleGame.Actor;
+import BattleGame.IDescribable;
+import BattleGame.UserInteraction.IValidate;
 import BattleGame.UserInteraction.IsValidIndex;
 import BattleGame.UserInteraction.Menu;
 import BattleGame.UserInteraction.View;
+import java.util.List;
 
 public class Player extends Controller implements IController
 {
@@ -24,32 +27,41 @@ public class Player extends Controller implements IController
     }
 
     //methods
-    public void takeAction(Actor[] availableTargets)
+    public void takeAction(Actor partyMember, List<Actor> availableTargets)
     {
-        for(Actor character : getLiveActors())
+        ICombatAction chosenAction = chooseAction(partyMember);
+
+        List<Actor> filteredTargets = chosenAction instanceof Heal ? allies(availableTargets) : opponents(availableTargets);
+
+        if(filteredTargets.size() > 1)
         {
-            View.present(" ", "Choose your action...");
+            Actor chosenTarget = chooseTarget(filteredTargets);
 
-            ICombatAction chosenAction = character.getAvailableActions()[View.getIntResponse(
-                    new IsValidIndex(character.getAvailableActions()),
-                    new Menu(character.getAvailableActions()).toString()) - 1];
-
-            Actor[] targets = chosenAction.getClass() == Heal.class ? getLiveActors() : opponents(availableTargets);
-
-            if(targets.length > 1)
-            {
-                View.present("Select your target...");
-
-                Actor chosenTarget = targets[View.getIntResponse(
-                        new IsValidIndex(targets),
-                        new Menu(targets).toString()) - 1];
-
-                View.present(chosenAction.performAction(chosenTarget));
-            }
-            else
-            {
-                View.present(chosenAction.performAction(targets[0]));
-            }
+            View.present(chosenAction.performAction(chosenTarget));
         }
+        else
+        {
+            View.present(chosenAction.performAction(filteredTargets.get(0)));
+        }
+    }
+
+    private ICombatAction chooseAction(Actor partyMember)
+    {
+        Menu menu = new Menu(partyMember.availableActions().toArray(new IDescribable[0]));
+        IValidate menuValidation = new IsValidIndex(partyMember.availableActions());
+
+        View.present("Choose your action...");
+
+        return partyMember.availableActions().get(View.getIntResponse(menuValidation, menu.toString()) - 1);
+    }
+
+    private Actor chooseTarget(List<Actor> availableTargets)
+    {
+        Menu menu = new Menu(availableTargets.toArray(new IDescribable[0]));
+        IValidate menuValidation = new IsValidIndex(availableTargets);
+
+        View.present("Select your target...");
+
+        return availableTargets.get(View.getIntResponse(menuValidation, menu.toString()) - 1);
     }
 }

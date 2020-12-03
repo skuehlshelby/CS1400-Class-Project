@@ -1,14 +1,16 @@
 package BattleGame.UserInteraction;
 
+import java.util.List;
+
 public class IsValidIndex implements IValidate<Integer>
 {
     private final int minValue;
     private final int maxValue;
 
-    public <T> IsValidIndex(T[] input)
+    public <T> IsValidIndex(List<T> input)
     {
         this.minValue = 1;
-        this.maxValue = input.length;
+        this.maxValue = input.size();
     }
 
     public boolean invalid(Integer input)

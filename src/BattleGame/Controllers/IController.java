@@ -8,9 +8,11 @@ package BattleGame.Controllers;
 
 import BattleGame.Actor;
 
+import java.util.List;
+
 public interface IController
 {
-    Actor[] getLiveActors();
+    List<Actor> getActors();
 
-    void takeAction(Actor[] availableTargets);
+    void takeAction(Actor partyMember, List<Actor> availableTargets);
 }

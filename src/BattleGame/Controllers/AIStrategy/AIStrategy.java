@@ -4,41 +4,32 @@ import BattleGame.Actions.Attack;
 import BattleGame.Actions.Heal;
 import BattleGame.Actions.ICombatAction;
 import BattleGame.Actor;
-
-import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public abstract class AIStrategy
 {
     private final Random rand = new Random();
 
-    protected <T> T pickRandom(T[] availableActions)
+    protected <T> T pickRandom(List<T> availableActions)
     {
-        return availableActions[rand.nextInt(availableActions.length)];
+        return availableActions.get(rand.nextInt(availableActions.size()));
     }
 
-    protected ICombatAction[] onlyAttacks(ICombatAction... availableActions)
+    protected List<ICombatAction> onlyAttacks(List<ICombatAction> availableActions)
     {
-        return Arrays.stream(availableActions).filter(action -> action instanceof Attack).toArray(ICombatAction[]::new);
+        return availableActions.stream().filter(action -> action instanceof Attack).collect(Collectors.toList());
     }
 
-    protected ICombatAction[] onlyHeals(ICombatAction... availableActions)
+    protected List<ICombatAction> onlyHeals(List<ICombatAction> availableActions)
     {
-        return Arrays.stream(availableActions).filter(action -> action instanceof Heal).toArray(ICombatAction[]::new);
+        return availableActions.stream().filter(action -> action instanceof Heal).collect(Collectors.toList());
     }
 
-    protected Actor lowestHealth(Actor... availableTargets)
+    protected Actor lowestHealth(List<Actor> availableTargets)
     {
-        Actor closestToDeath = availableTargets[0];
-
-        for(Actor actor : availableTargets)
-        {
-            if (actor.getHealth().current() < closestToDeath.getHealth().current())
-            {
-                closestToDeath = actor;
-            }
-        }
-
-        return closestToDeath;
+        return availableTargets.stream().min(Comparator.comparingDouble(actor -> actor.getHealth().current())).get();
     }
 }
