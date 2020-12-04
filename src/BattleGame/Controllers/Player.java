@@ -50,7 +50,7 @@ public class Player extends Controller implements IController
         Menu menu = new Menu(partyMember.availableActions().toArray(new IDescribable[0]));
         IValidate menuValidation = new IsValidIndex(partyMember.availableActions());
 
-        View.present("Choose your action...");
+        View.present(" ", "Choose your action...");
 
         return partyMember.availableActions().get(View.getIntResponse(menuValidation, menu.toString()) - 1);
     }
@@ -60,7 +60,7 @@ public class Player extends Controller implements IController
         Menu menu = new Menu(availableTargets.toArray(new IDescribable[0]));
         IValidate menuValidation = new IsValidIndex(availableTargets);
 
-        View.present("Select your target...");
+        View.present(" ", "Select your target...");
 
         return availableTargets.get(View.getIntResponse(menuValidation, menu.toString()) - 1);
     }
