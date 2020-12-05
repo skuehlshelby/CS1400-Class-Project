@@ -2,6 +2,12 @@ package BattleGame;
 
 import java.util.Random;
 
+/***********************************
+ * An object which always returns a
+ * value between two other pre-defined
+ * values.
+ ***********************************/
+
 public class Dice
 {
     //fields

@@ -9,6 +9,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+/*******************************************
+ * Contains helper methods specifically for
+ * creating AI types. Not meant to be used
+ * by human players.
+ *******************************************/
+
 public abstract class AIStrategy
 {
     private final Random rand = new Random();

@@ -2,8 +2,12 @@ package BattleGame.Controllers.AIStrategy;
 
 import BattleGame.Actions.ICombatAction;
 import BattleGame.Actor;
-
 import java.util.List;
+
+/***************************************
+ * Logic (or lack thereof) for an AI player
+ * who only attacks.
+ ***************************************/
 
 public class OnlyAttack extends AIStrategy implements IAIStrategy
 {

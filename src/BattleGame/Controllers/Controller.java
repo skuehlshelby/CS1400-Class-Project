@@ -1,12 +1,15 @@
 package BattleGame.Controllers;
 
 import BattleGame.Actor;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//Might not need this class. It's just a place to put methods that are shared between the player and the computer.
+/*******************************************
+ * A place to put logic which is used by
+ * both human players and AI players.
+ *******************************************/
+
 public abstract class Controller implements IController
 {
     protected final List<Actor> party;
@@ -21,11 +24,13 @@ public abstract class Controller implements IController
         return party;
     }
 
+    //Filters the supplied List of Actors and returns only actors who ARE NOT in this Controller's party.
     protected List<Actor> opponents(List<Actor> actors)
     {
         return actors.stream().filter(actor -> !party.contains(actor)).collect(Collectors.toList());
     }
 
+    //Filters the supplied List of Actors and returns only actors who ARE in this Controller's party.
     protected List<Actor> allies(List<Actor> actors)
     {
         return actors.stream().filter(party::contains).collect(Collectors.toList());

@@ -7,6 +7,7 @@ package BattleGame;
 
 public class Main
 {
+    //Potential future direction: Multiple stories to choose from.
     public static void main(String[] args)
     {
         IStory Arena = new TaleOfVictory();

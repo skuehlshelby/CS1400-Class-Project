@@ -15,6 +15,16 @@ public class TaleOfVictory implements IStory
     //cstor
 
     //methods
+    public String getName()
+    {
+        return "A Tale of Victory";
+    }
+
+    public String getDescription()
+    {
+        return "A glorious tale of brave arena fighters.";
+    }
+
     public void tell() {
         //INTRODUCTION (just messing around right now, can change up later if we want!)
         View.present("You take a breath, readying yourself as you listen to the sound of",

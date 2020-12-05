@@ -28,7 +28,6 @@ public class Heal implements ICombatAction
         return description;
     }
 
-
     public String performAction(Actor target) {
 
         double restoredHealth = dice.roll();

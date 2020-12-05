@@ -4,6 +4,8 @@ package BattleGame.UserInteraction;
  * Description: Contains methods for
  * presenting things to the user and
  * getting responses from the user.
+ * All methods are static. No need to create
+ * an instance.
  ***************************************/
 
 import java.util.Scanner;

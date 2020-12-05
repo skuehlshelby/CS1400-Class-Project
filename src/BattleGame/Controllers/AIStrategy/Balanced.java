@@ -4,6 +4,12 @@ import BattleGame.Actions.ICombatAction;
 import BattleGame.Actor;
 import java.util.List;
 
+/***************************************
+ * Logic for an AI player who attacks
+ * normally but heals when their health
+ * is low.
+ ***************************************/
+
 public class Balanced extends AIStrategy implements IAIStrategy
 {
 

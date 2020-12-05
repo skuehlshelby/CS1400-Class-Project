@@ -1,11 +1,5 @@
 package BattleGame.Controllers;
 
-/***************************************
- * Description: Contains the logic needed
- *  to allow the player to control their
- *  character (Actor).
- ***************************************/
-
 import BattleGame.Actions.Heal;
 import BattleGame.Actions.ICombatAction;
 import BattleGame.Actor;
@@ -15,6 +9,12 @@ import BattleGame.UserInteraction.IsValidIndex;
 import BattleGame.UserInteraction.Menu;
 import BattleGame.UserInteraction.View;
 import java.util.List;
+
+/***************************************
+ * Description: Contains the logic needed
+ *  to allow the player to control their
+ *  character (Actor).
+ ***************************************/
 
 public class Player extends Controller implements IController
 {

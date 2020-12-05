@@ -2,6 +2,11 @@ package BattleGame.UserInteraction;
 
 import BattleGame.IDescribable;
 
+/*********************************************
+ * Turns several IDescribable objects into a
+ * neatly formatted menu.
+ *********************************************/
+
 public class Menu
 {
     //fields

@@ -2,6 +2,12 @@ package BattleGame.UserInteraction;
 
 import java.util.List;
 
+/*********************************************
+ * Contains logic which ensures that a number
+ * is a valid index of the List supplied to
+ * the constructor. Indices are offset by one.
+ *********************************************/
+
 public class IsValidIndex implements IValidate<Integer>
 {
     private final int minValue;
