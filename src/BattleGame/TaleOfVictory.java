@@ -34,9 +34,14 @@ public class TaleOfVictory implements IStory
                 new Attack("Fire Bolt", "a powerful bolt of fire magic", 40.0, 75.0),
                 new Heal("Cure Wounds", "restores a small amount of health", 50.0, 70.0));
 
-        View.present(String.format("“%s! %s! %s!“", mainCharacter.getName(), mainCharacter.getName(), mainCharacter.getName()));
-        View.present(" ", "More gates lift around you as various beasts come hurling out of them,",
-                "setting you in their sights.", " ", "You charge towards them to meet their attack.", " ");
+        View.present(String.format("“%s! %s! %s!“", mainCharacter.getName(), mainCharacter.getName(),
+                mainCharacter.getName()));
+        View.present(" ", "More gates lift around you as various beasts come hurling out of them.",
+                "They set you in their sights and quickly advance towards you.", " ",
+                "One of them is a hulking giant, a greatclub clutched in its hand.",
+                "The other is a towering minotaur with long lethal horns.",
+                " ", "You charge towards each other.",
+                "\nClashing in the middle of the arena, the minotaur makes the first attack.", " ", " ");
 
     /**FIRST BATTLE**/
         Player player = new Player(mainCharacter);
@@ -49,7 +54,10 @@ public class TaleOfVictory implements IStory
             View.present("\nWith hardly a sweat upon your brow,",
                     "you watch the bodies of the beasts drop to the ground with a thud.",
                     "\nBut this battle is not yet over.",
-                    "\nHearing sound of more enemies rushing near... you turn to face them.");
+                    "\nHearing sound of more enemies rushing near... you turn to face them.",
+                    "An enormous hairy spider crawls towards you on eight long legs.",
+                    "Alongside it is a large slithering basilisk.",
+                    "\nYou dash forwards to meet their attack.");
         }
         //IF PLAYER DIES
             else {
@@ -73,7 +81,7 @@ public class TaleOfVictory implements IStory
             View.present(String.format("%n“%s! %s! %s!“", mainCharacter.getName().toUpperCase(),
                     mainCharacter.getName().toUpperCase(), mainCharacter.getName().toUpperCase()));
 
-            View.present("With another win under your belt, you leave the arena laden with gold and gifts..",
+            View.present("\nWith another win under your belt, you leave the arena laden with gold and gifts..",
                     "already anticipating next year's fight.");
         }
             //IF PLAYER DIES.
