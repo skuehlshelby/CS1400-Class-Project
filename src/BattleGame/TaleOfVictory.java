@@ -26,7 +26,7 @@ public class TaleOfVictory implements IStory
     }
 
     public void tell() {
-        //INTRODUCTION (just messing around right now, can change up later if we want!)
+        //INTRODUCTION
         View.present("You take a breath, readying yourself as you listen to the sound of",
                 "thousands of voices cheering and yelling around the arena.",
                 "The deafening voice of the announcer cuts through them all.",
@@ -35,13 +35,13 @@ public class TaleOfVictory implements IStory
                 "The gate before you lifts, and you step into the large circular arena.",
                 "The crowd cheers your name, louder and louder.", " ");
 
-        //getting character name
+        //GETTING CHARACTER NAME
         Actor mainCharacter = new Actor(View.getStringResponse(
                 "(What name is the crowd cheering?)"),
                 "A legendary fighter.",
                 150.0,
                 new Attack("Flurry of Blows", "a whirlwind of attacks", 25.0, 35.0),
-                new Attack("Fire Bolt", "a powerful bolt of fire magic", 40.0, 75.0),
+                new Attack("Fire Bolt", "a powerful bolt of fire magic", 40.0, 70.0),
                 new Heal("Cure Wounds", "restores a small amount of health", 50.0, 70.0));
 
         View.present(String.format("“%s! %s! %s!“", mainCharacter.getName(), mainCharacter.getName(),
@@ -53,13 +53,13 @@ public class TaleOfVictory implements IStory
                 " ", "You charge towards each other.",
                 "\nClashing in the middle of the arena, the minotaur makes the first attack.", " ", " ");
 
-    /**FIRST BATTLE**/
+        //FIRST BATTLE
         Player player = new Player(mainCharacter);
         Computer comp = new Computer(Stock.minotaur, Stock.giant);
 
         IController Victor = new Battle(player, comp).fight();
 
-        //IF PLAYER WINGS
+        //IF PLAYER WINS
         if (Victor == player) {
             View.present("\nWith hardly a sweat upon your brow,",
                     "you watch the bodies of the beasts drop to the ground with a thud.",
@@ -69,7 +69,7 @@ public class TaleOfVictory implements IStory
                     "Alongside it is a large slithering basilisk.",
                     "\nYou dash forwards to meet their attack.");
         }
-        //IF PLAYER DIES
+            //IF PLAYER DIES
             else {
                 View.present("\nYour opponents attack with a ferocious onslaught.",
                         "Not quick enough to block their attacks, you take hit after hit.",
@@ -78,7 +78,7 @@ public class TaleOfVictory implements IStory
                 return;
         }
 
-    /***** SECOND BATTLE ****/
+        //SECOND BATTLE
         comp = new Computer(Stock.basilisk, Stock.giantSpider);
         Victor = new Battle(player, comp).fight();
 
