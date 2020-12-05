@@ -6,6 +6,12 @@ import java.util.List;
 
 public class Balanced extends AIStrategy implements IAIStrategy
 {
+
+    //fields
+
+    //cstor
+
+    //methods
     public ICombatAction getAction(Actor actor)
     {
         List<ICombatAction> availableActions = actor.availableActions();

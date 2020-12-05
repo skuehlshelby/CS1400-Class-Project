@@ -4,8 +4,10 @@ import BattleGame.IDescribable;
 
 public class Menu
 {
+    //fields
     private String menu = "";
 
+    //cstor
     public Menu(IDescribable... items)
     {
         final String choiceFormat = "%d. %s: %s\n";
@@ -20,6 +22,7 @@ public class Menu
         menu = menu.trim();
     }
 
+    //methods
     public String toString()
     {
         return menu;
